@@ -1,0 +1,275 @@
+// -*- mode: json -*-
+[
+  {
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": [
+      "hyprland/workspaces",
+      "clock",
+      "idle_inhibitor",
+    ],
+    "modules-center": [
+      "group/system",
+    ],
+    "modules-right": [
+      "bluetooth",
+      "pulseaudio",
+      "backlight",
+      "network",
+      "custom/uptime",
+      "group/power",
+    ],
+
+    // CUSTOM STUFF
+    "custom/seperator": {
+      "format": " | ",
+      "tooltip": false
+    },
+    "custom/quit": {
+      "format": " 󰗼 ",
+      "tooltip": false,
+      "on-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+      "format": " 󰍁 ",
+      "tooltip": false,
+      "on-click": "hyprlock"
+    },
+    "custom/reboot": {
+      "format": " 󰜉 ",
+      "tooltip": false,
+      "on-click": "reboot"
+    },
+    "custom/power": {
+      "format": " 󰐥 ",
+      "tooltip": false,
+      "on-click": "shutdown now"
+    },
+    "custom/uptime": {
+      "exec": "/home/maverikio/projects/scripts/uptime",
+      "interval": 1,
+      "tooltip": false
+    },
+
+    // GROUPS
+    "group/system": {
+      "orientation": "inherit",
+      "modules": [
+        "cpu",
+        "custom/seperator",
+        "memory",
+        "custom/seperator",
+        "disk",
+        "custom/seperator",
+        "battery"
+      ]
+    },
+    "group/power": {
+      "orientation": "inherit",
+      "modules": [
+        "custom/lock",
+        "custom/quit",
+        "custom/power",
+        "custom/reboot",
+      ]
+    },
+
+    //OTHER
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": " ",
+        "deactivated": " "
+      }
+    },
+    "backlight": {
+      "format":" {percent: >3}%",
+      "scroll-step": 1,
+    },
+    "network": {
+      "format": "{icon}{essid}",
+      "format-icons": [
+        "󰤯 ",
+        "󰤟 ",
+        "󰤢 ",
+        "󰤥 ",
+        "󰤨 "
+      ]
+    },
+    "bluetooth": {
+      "format-on": "󰂯",
+      "format-disabled": "󰂲",
+      "format-connected": "󰂱",
+      "tooltip": true,
+      "tooltip-format": "{device_alias} ({device_battery_percentage}%)",
+      "on-click": "blueman-manager"
+    },
+    "clock": {
+      "format": "<b>{:%I:%M %p</b><i> %d/%m/%y}</i>",
+      "tooltip-format": "<small>{calendar}</small>",
+      "timezone": "Asia/Kolkata",
+      "calendar": {
+        "mode"          : "month",
+        "mode-mon-col"  : 3,
+        "on-scroll"     : 1,
+        "format": {
+          "months":     "{}",
+          "days":       "{}",
+          "today":      "<b><span color='#F38BA8'>{}</span></b>"
+        }
+      },
+    },
+    "pulseaudio": {
+      "format": "{icon} {volume: >3}%",
+      "format-bluetooth": "{icon} {volume: >3}%",
+      "format-muted": " ",
+      "format-icons": {
+        "headphones": "",
+        "default": [
+          " ",
+          " "
+        ]
+      },
+      "scroll-step": 1,
+      "on-click": "pamixer -t",
+      "on-click-right": "pavucontrol"
+    },
+    "memory": {
+      "interval": 1,
+      "format": "  {percentage}%"
+    },
+    "cpu": {
+      "interval": 1,
+      "format": "  {usage}%"
+    },
+    "battery": {
+      "states": {
+        "great": 100,
+        "good": 70,
+        "ok": 50,
+        "bad": 20,
+        "terrible": 10
+      },
+      "format": "{icon} {capacity}% <b>[{power:.0f}W]</b>",
+      "format-charging": "{icon}󱐋 {capacity}% <b>[{power:.0f}W]</b>",
+      "format-icons": [
+        "󰁻",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂀",
+        "󰂂",
+        "󰁹"
+      ],
+      "interval": 1,
+
+    },
+    "disk": {
+      "interval": 1,
+      "format": "󰋊 {percentage_used}%",
+      "path": "/home"
+    },
+    "hyprland/workspaces": {
+      "persistent-workspaces": {
+        "*" : 5
+      },
+      "format": "{icon}" ,
+    }
+  },
+  {
+    "layer": "top",
+    "position": "bottom",
+    "modules-center":[
+      "cava",
+    ],
+    "modules-left": [
+      "group/quickaccess"
+    ],
+    "modules-right": [
+      "custom/current_music" 
+    ],
+    "custom/current_music": {
+      "exec": "/home/maverikio/projects/scripts/current_music",
+      "interval": 1,
+    },
+
+    "group/quickaccess":{
+      "orientation": "inherit",
+      "modules": [
+        "custom/app1",
+        "custom/seperator",
+        "custom/app2",
+        "custom/seperator",
+        "custom/app3",
+        "custom/seperator",
+        "custom/app4",
+        "custom/seperator",
+        "custom/app5",
+        "custom/seperator",
+        "custom/app6",
+        "custom/seperator",
+        "custom/app7",
+      ]
+    },
+    "custom/seperator": {
+      "format": " ",
+      "tooltip": false
+    },
+    "custom/app1": {
+      "format": " ",
+      "tooltip-format": "Discord",
+      "on-click": "discord",
+    },
+    "custom/app2": {
+      "format": " ",
+      "tooltip-format": "Spotify",
+      "on-click": "spotify"
+    },
+    "custom/app3": {
+      "format": " ",
+      "tooltip-format": "Terminal",
+      "on-click": "kitty",
+    },
+    "custom/app4": {
+      "format": "󰍳 ",
+      "tooltip-format": "Minecraft",
+      "on-click": "java -jar /home/maverikio/games/TLauncher.jar",
+    }, 
+    "custom/app5": {
+      "format": " ",
+      "tooltip-format": "Files",
+      "on-click": "nemo",
+    },
+    "custom/app6": {
+      "format": " ",
+      "tooltip-format": "Chrome",
+      "on-click": "google-chrome-stable",
+    },
+    "custom/app7": {
+      "format": " ",
+      "tooltip-format": "Amberol",
+      "on-click": "amberol"
+    },
+    "cava": {
+      "framerate": 60,
+      "sensitivity": 3,
+      "bars": 200,
+      "reverse": false,
+      "lower_cutoff_freq": 50,
+      "higher_cutoff_freq": 10000,
+      "method": "pipewire",
+      "source": "auto",
+      "stereo": true,
+      "bar_delimiter": 0,
+      "monstercat": false,
+      "waves": false,
+      "noise_reduction": 0.37,
+      "input_delay": 2,
+      "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    },
+  }
+]

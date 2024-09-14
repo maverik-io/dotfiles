@@ -1,0 +1,178 @@
+#! /bin/bash
+export EDITOR=nvim
+
+source <(fzf --zsh)
+source <(zoxide init zsh --cmd cd)
+source <(starship init zsh)
+# Variables
+PROJECT_PATH_PYTHON="/home/maverikio/projects/"
+PROJECT_PATH_LUA="/home/maverikio/projects/lua"
+PROJECT_PATH_RUST="/home/maverikio/projects/rust"
+PROJECT_PATH_PYTHON_SCRIPTS="/home/maverikio/projects/scripts"
+
+# Functions
+projj() {
+  # proj goto <lang> <project>
+  # proj create <lang> <project>
+  # proj list <lang>
+
+  case $1 in
+  goto)
+    case $2 in
+    py)
+      cd "$PROJECT_PATH_PYTHON/$3"
+      ;;
+    lua)
+      cd "$PROJECT_PATH_LUA/$3"
+      ;;
+    rust)
+      cd "$PROJECT_PATH_RUST/$3"
+      ;;
+    term)
+      case $3 in
+      "")
+        cd $PROJECT_PATH_PYTHON_SCRIPTS
+        ;;
+      *)
+        nvim "$PROJECT_PATH_PYTHON_SCRIPTS/$3.py"
+        ;;
+      esac
+      ;;
+    *)
+      echo "proj goto <lang> || proj goto <lang> <project>"
+      ;;
+    esac
+    ;;
+  create)
+
+    if [[ $3 == "" ]]; then
+      echo "project name cannot be null"
+      return 1
+    fi
+
+    case $2 in
+    py)
+      mkdir "$PROJECT_PATH_PYTHON/$3"
+      cp -r $PROJECT_PATH_PYTHON/template/. "$PROJECT_PATH_PYTHON/$3"
+      cd "$PROJECT_PATH_PYTHON/$3"
+      git init
+      touch README.md .gitignore
+      git add .
+      git commit -m "Initial commit"
+      git branch -M main
+      ;;
+    lua)
+      mkdir "$PROJECT_PATH_LUA/$3"
+      cd "$PROJECT_PATH_LUA/$3"
+      git init
+      touch README.md
+      git add .
+      git commit -m "Initial commit"
+      git branch -M main
+      git remote add origin
+      ;;
+    rust)
+      cargo new "$PROJECT_PATH_RUST/$3"
+      cd "$PROJECT_PATH_RUST/$3"
+      ;;
+    term)
+      echo "#! /usr/local/bin/python3" >>"$PROJECT_PATH_PYTHON_SCRIPTS/$3.py"
+      chmod +x "$PROJECT_PATH_PYTHON_SCRIPTS/$3.py"
+      nvim "$PROJECT_PATH_PYTHON_SCRIPTS/$3.py"
+      echo "alias $3=\"$PROJECT_PATH_PYTHON_SCRIPTS/$3.py\" " >>/home/maverikio/.aliases
+      echo "Created $3.py in $PROJECT_PATH_PYTHON_SCRIPTS"
+      ;;
+    *)
+      echo "proj create <lang> <project-name>"
+      ;;
+
+    esac
+    ;;
+  list)
+    case $2 in
+    py)
+      ls "$PROJECT_PATH_PYTHON"
+      ;;
+    lua)
+      ls "$PROJECT_PATH_LUA"
+      ;;
+    rust)
+      ls "$PROJECT_PATH_RUST"
+      ;;
+    term)
+      ls "$PROJECT_PATH_PYTHON_SCRIPTS"
+      ;;
+    *)
+      echo "proj list <lang>"
+      ;;
+
+    esac
+    ;;
+  *)
+    echo "proj < goto || create || list > ..."
+    ;;
+  esac
+}
+
+eval "$(proj-cmd init zsh)"
+
+mav() {
+
+  macchina --theme maverikio -o host -o machine -o processor -o distribution -o processor-load -o battery
+}
+
+index() {
+
+  if [[ "$1" == "" ]]; then
+    dir=$(pwd)
+  else
+    dir=$1
+  fi
+  echo "Opening $dir/indexer.json in nvim..."
+  nvim $dir/indexer.json
+}
+
+opn() {
+  if [[ "$1" == "chrome" ]]; then
+    open -a "Google Chrome"
+  elif [[ "$1" == "alacritty" ]]; then
+    open -a "Alacritty"
+  fi
+}
+
+config() {
+  nvim /home/maverikio/.config/$1
+}
+
+install() {
+  sudo dnf install $@
+}
+uninstall() {
+  sudo dnf remove $@
+}
+clean() {
+  files="$(find /home/maverikio/projects/rust -type d -name target*)"
+  if [[ "$files" == "" ]]; then
+    echo "nothing to clean"
+  else
+    echo $files
+    read "REPLY?Delete shown directories? (y/N): "
+    if [[ "$REPLY" == "y" ]]; then
+      echo "deleting..."
+      rm -fr $files
+    else
+      echo $REPLY
+    fi
+  fi
+
+}
+
+# Aliases
+
+alias alaconfigg="$PROJECT_PATH_PYTHON_SCRIPTS/alaconfig.py"
+alias love="/Applications/love.app/Contents/MacOS/love"
+alias zel="zellij -l welcome"
+alias clear="clear; mav"
+alias pip="python3 -m pip"
+alias ls="eza"
+alias indexer="python3 /home/maverikio/projects/python/Indexer/main.py"

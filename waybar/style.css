@@ -1,0 +1,165 @@
+@import 'colors.css';
+
+* {
+    font-family: "JetbrainsMono Nerd Font";
+ }
+
+
+window#waybar {
+  background: rgba(1, 1, 1, 0.0);
+  color: @text;
+}
+
+
+#workspaces {
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  transition: all 0.3s ease-in-out;
+  min-width: 20px;
+  border-radius: 20px;
+  background: @text;
+  color: @mantle;
+  margin: 2px 5px;
+}
+
+#workspaces button.active,
+#workspaces button.active:hover {
+  transition: all 0.3s ease-in-out;
+  min-width: 40px;
+}
+
+
+#pulseaudio {
+  color: @sapphire;
+}
+
+#memory {
+  color: @teal;
+}
+
+#cpu {
+  color: @mauve;
+}
+
+#idle_inhibitor {
+  color: @yellow;
+}
+
+#custom-uptime {
+  color: @sky
+}
+
+#custom-wallpaper {
+  color: @peach;
+}
+
+#disk {
+  color: @red;
+}
+
+
+
+#battery.great {
+  color: @green
+}
+
+#battery.good {
+  color: @teal;
+}
+
+#battery.ok {
+  color: @peach;
+}
+
+#battery.bad {
+  color: @maroon;
+}
+
+#battery.terrible {
+  color: @red;
+}
+
+i {
+  color: @red;
+}
+
+#clock:hover,
+#system:hover,
+#pulseaudio:hover,
+#connectivity:hover,
+.not-wifi:hover,
+#power:hover,
+#workspaces:hover,
+#idle_inhibitor:hover,
+#custom-wallpaper:hover,
+#bluetooth:hover,
+#backlight:hover,
+#network:hover,
+#custom-uptime:hover {
+
+  border-top: solid @red 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+#clock,
+#system,
+#pulseaudio,
+#connectivity,
+.not-wifi,
+#power,
+#workspaces,
+#idle_inhibitor,
+#custom-wallpaper,
+#bluetooth,
+#backlight,
+#network,
+#custom-uptime {
+  padding: 5px 10px;
+  margin: 0px 5px;
+  transition: all 0.3s ease-in-out;
+  background: @base;
+  border-radius: 0 0 10px 10px;
+  border: solid @overlay0 2px;
+  font-size: 18px;
+  border-top: solid @sky 3px;
+}
+#custom-current_music,
+#quickaccess {
+  padding: 5px 10px;
+  margin: 0px 10px;
+  transition: all 0.3s ease-in-out;
+  background: @base;
+  border-radius: 10px 10px 0 0;
+  border: solid @overlay0 2px;
+  font-size: 14px;
+  border-bottom: solid @sky 3px;
+}
+#custom-current_music {
+  min-width: 150px;
+  
+}
+#cava {
+  padding: 0px 0px;
+  font-size: 10px;
+  transition: all 0.3s ease-in-out;
+  margin: 0px 0px;
+  background: @base;
+  border-radius: 10px 10px 0 0;
+  border: solid @overlay0 2px;
+  border-bottom: solid @sky 3px;
+  color: @yellow;
+}
+#cava:hover,
+#custom-current_music:hover,
+#quickaccess:hover{
+  transition: all 0.3s ease-in-out;
+  border-bottom: solid @red 3px;
+}
+
+#bluetooth {
+  padding: 5px 15px;
+}
