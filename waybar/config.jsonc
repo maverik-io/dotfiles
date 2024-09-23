@@ -47,7 +47,7 @@
       "on-click": "shutdown now"
     },
     "custom/uptime": {
-      "exec": "/home/maverikio/projects/scripts/uptime",
+      "exec": "$HOME/projects/scripts/uptime",
       "interval": 1,
       "tooltip": false
     },
@@ -193,7 +193,7 @@
       "custom/current_music" 
     ],
     "custom/current_music": {
-      "exec": "/home/maverikio/projects/scripts/current_music",
+      "exec": "$HOME/projects/scripts/current_music",
       "interval": 1,
     },
 
@@ -237,7 +237,7 @@
     "custom/app4": {
       "format": "󰍳 ",
       "tooltip-format": "Minecraft",
-      "on-click": "java -jar /home/maverikio/games/TLauncher.jar",
+      "on-click": "java -jar $HOME/games/TLauncher.jar",
     }, 
     "custom/app5": {
       "format": " ",
