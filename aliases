@@ -159,9 +159,7 @@ clean() {
     read "REPLY?Delete shown directories? (y/N): "
     if [[ "$REPLY" == "y" ]]; then
       echo "deleting..."
-      rm -fr $files
-    else
-      echo $REPLY
+      find /home/maverikio/projects/rust/ -type d -name target\* -exec rm -fr {} ';'
     fi
   fi
 
@@ -176,3 +174,7 @@ alias clear="clear; mav"
 alias pip="python3 -m pip"
 alias ls="eza"
 alias indexer="python3 /home/maverikio/projects/python/Indexer/main.py"
+
+alias gc="git commit"
+alias gac="git add . && git commit"
+alias gacp="git add . && git commit && git push -u origin main"

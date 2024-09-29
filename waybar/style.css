@@ -57,6 +57,9 @@ window#waybar {
   color: @peach;
 }
 
+#custom-distro {
+  color: @blue;
+}
 #disk {
   color: @red;
 }
@@ -83,9 +86,7 @@ window#waybar {
   color: @red;
 }
 
-i {
-  color: @red;
-}
+
 
 #clock:hover,
 #system:hover,
@@ -96,6 +97,7 @@ i {
 #workspaces:hover,
 #idle_inhibitor:hover,
 #custom-wallpaper:hover,
+#custom-distro:hover,
 #bluetooth:hover,
 #backlight:hover,
 #network:hover,
@@ -114,6 +116,7 @@ i {
 #workspaces,
 #idle_inhibitor,
 #custom-wallpaper,
+#custom-distro,
 #bluetooth,
 #backlight,
 #network,
@@ -128,6 +131,7 @@ i {
   border-top: solid @sky 3px;
 }
 #custom-current_music,
+#tray, 
 #quickaccess {
   padding: 5px 10px;
   margin: 0px 10px;
@@ -144,6 +148,7 @@ i {
 }
 #cava {
   padding: 0px 0px;
+  min-width: 1000px;
   font-size: 10px;
   transition: all 0.3s ease-in-out;
   margin: 0px 0px;
@@ -151,15 +156,21 @@ i {
   border-radius: 10px 10px 0 0;
   border: solid @overlay0 2px;
   border-bottom: solid @sky 3px;
-  color: @yellow;
+  color: @pink;
 }
 #cava:hover,
 #custom-current_music:hover,
-#quickaccess:hover{
+#quickaccess:hover,
+#tray:hover{
   transition: all 0.3s ease-in-out;
   border-bottom: solid @red 3px;
 }
 
 #bluetooth {
   padding: 5px 15px;
+}
+
+#network {
+  color: @yellow;
+  padding: 5px 10px 5px 14px;
 }
