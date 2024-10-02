@@ -90,17 +90,12 @@ window#waybar {
 
 #clock:hover,
 #system:hover,
-#pulseaudio:hover,
-#connectivity:hover,
-.not-wifi:hover,
+#utils:hover,
 #power:hover,
 #workspaces:hover,
 #idle_inhibitor:hover,
 #custom-wallpaper:hover,
 #custom-distro:hover,
-#bluetooth:hover,
-#backlight:hover,
-#network:hover,
 #custom-uptime:hover {
 
   border-top: solid @red 3px;
@@ -109,25 +104,20 @@ window#waybar {
 
 #clock,
 #system,
-#pulseaudio,
-#connectivity,
-.not-wifi,
+#utils,
 #power,
 #workspaces,
 #idle_inhibitor,
 #custom-wallpaper,
 #custom-distro,
-#bluetooth,
-#backlight,
-#network,
 #custom-uptime {
-  padding: 5px 10px;
+  padding: 2px 10px;
   margin: 0px 5px;
   transition: all 0.3s ease-in-out;
   background: @base;
   border-radius: 0 0 10px 10px;
   border: solid @overlay0 2px;
-  font-size: 18px;
+  font-size: 15px;
   border-top: solid @sky 3px;
 }
 #custom-current_music,
@@ -167,7 +157,7 @@ window#waybar {
 }
 
 #bluetooth {
-  padding: 5px 15px;
+  padding: 2px 10px 2px 15px;
 }
 
 #network {

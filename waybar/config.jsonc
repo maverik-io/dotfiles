@@ -14,10 +14,7 @@
       "group/system",
     ],
     "modules-right": [
-      "bluetooth",
-      "pulseaudio",
-      "backlight",
-      "network",
+      "group/utils",
       "custom/uptime",
       "group/power",
     ],
@@ -68,6 +65,19 @@
         "disk",
         "custom/seperator",
         "battery"
+      ]
+    },
+
+    "group/utils": {
+      "orientation": "inherit",
+      "modules": [
+        "bluetooth",
+        "custom/seperator",
+        "pulseaudio",
+        "custom/seperator",
+        "backlight",
+        "custom/seperator",
+        "network",
       ]
     },
     "group/power": {
@@ -204,6 +214,9 @@
       "exec": "$HOME/projects/scripts/current_music",
       "interval": 1,
     },
+    "tray":{
+      "spacing": 10,
+    },
 
     "group/quickaccess":{
       "orientation": "inherit",
@@ -245,7 +258,7 @@
     "custom/app4": {
       "format": "󰍳 ",
       "tooltip-format": "Minecraft",
-      "on-click": "java -jar $HOME/games/TLauncher.jar",
+      "on-click": "java -jar $HOME/Games/TLauncher.jar",
     }, 
     "custom/app5": {
       "format": " ",

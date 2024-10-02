@@ -3,7 +3,6 @@ palette = "catppuccin_mocha"
 format = '''$directory
 $character'''
 
-right_format = "$shell"
 
 [shell]
 disabled = false
