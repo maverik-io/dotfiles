@@ -176,5 +176,6 @@ alias ls="eza"
 alias indexer="python3 /home/maverikio/projects/python/Indexer/main.py"
 
 alias gc="git commit"
+alias gp="git push -u origin main"
 alias gac="git add . && git commit"
 alias gacp="git add . && git commit && git push -u origin main"

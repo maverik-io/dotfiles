@@ -104,7 +104,7 @@
     },
     "network": {
       "tooltip-format": "{icon}{essid}",
-      "format": "{icon}",
+      "format": "{icon} {essid}",
       "format-icons": [
         "󰤯 ",
         "󰤟 ",
@@ -114,9 +114,9 @@
       ]
     },
     "bluetooth": {
-      "format-on": "󰂯",
-      "format-disabled": "󰂲",
-      "format-connected": "󰂱",
+      "format-on": "󰂯  on",
+      "format-disabled": "󰂲 off",
+      "format-connected": "󰂱 ctd",
       "tooltip": true,
       "tooltip-format": "{device_alias} ({device_battery_percentage}%)",
       "on-click": "blueman-manager"
