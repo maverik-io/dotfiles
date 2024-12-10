@@ -17,7 +17,7 @@ vimcmd_symbol  = "[❯](green)[❯](red)[❯](mauve)"
 truncation_length = 2
 truncate_to_repo = true
 truncation_symbol = '-+/'
-style = 'bold teal'
+style = 'bold blue'
 read_only = "⦿ "
 format = '[$read_only]($read_only_style) [$path]($style) '
 
