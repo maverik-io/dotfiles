@@ -1,0 +1,141 @@
+@import 'colors.css';
+@import 'accent.css';
+
+* {
+    font-family: "JetBrainsMonoNL Nerd Font";
+ }
+
+
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+  color: @text;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  transition: all 0.3s ease-in-out;
+  min-width: 20px;
+  border-radius: 15px;
+  border: solid @overlay0 1px;
+  background: @base;
+  color: @text;
+  margin: 0 2px;
+}
+
+#workspaces button:hover {
+  transition: all 0.3s ease-in-out;
+  border-color: @hl;
+}
+
+#workspaces button.active,
+#workspaces button.active:hover {
+  transition: all 0.3s ease-in-out;
+  min-width: 40px;
+  border-color: @hl;
+}
+
+
+#pulseaudio {
+  color: @sapphire;
+}
+
+#memory {
+  color: @teal;
+}
+
+#cpu {
+  color: @mauve;
+}
+
+#idle_inhibitor {
+  color: @yellow;
+}
+
+#custom-uptime {
+  color: @sky
+}
+
+#custom-wallpaper {
+  color: @peach;
+}
+
+#custom-distro {
+  color: @blue;
+}
+#disk {
+  color: @red;
+}
+
+
+
+#battery.great {
+  color: @green
+}
+
+#battery.good {
+  color: @teal;
+}
+
+#battery.ok {
+  color: @peach;
+}
+
+#battery.bad {
+  color: @maroon;
+}
+
+#battery.terrible {
+  color: @red;
+}
+
+#clock,
+#system,
+#utils,
+#power,
+#idle_inhibitor,
+#custom-wallpaper,
+#custom-distro,
+#custom-uptime {
+  padding: 5px 10px;
+  margin: 5px 5px 0 5px;
+  transition: all 0.3s ease-in-out;
+  background: @base;
+  border-radius: 15px;
+  border: solid @overlay0 1px;
+  font-size: 16px;
+}
+#clock:hover,
+#system:hover,
+#utils:hover,
+#power:hover,
+#idle_inhibitor:hover,
+#custom-wallpaper:hover,
+#custom-distro:hover,
+#custom-uptime:hover{
+  border: solid @hl 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+#custom-current_music {
+  min-width: 150px;
+  
+}
+
+#bluetooth {
+  color: @teal
+}
+
+#network {
+  color: @sky;
+}
+
+#backlight {
+  color: @yellow
+}
+#workspaces {
+  padding: 0;
+  margin: 5px 0 0 0;
+  background: transparent;
+  border: none;
+}

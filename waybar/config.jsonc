@@ -1,0 +1,198 @@
+// -*- mode: json -*-
+[
+  {
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": [
+      "custom/distro",
+      "hyprland/workspaces",
+      "clock",
+      "idle_inhibitor",
+    ],
+    "modules-center": [
+      "group/system",
+    ],
+    "modules-right": [
+      "group/utils",
+      "custom/uptime",
+      "group/power",
+    ],
+
+    // CUSTOM STUFF
+    "custom/seperator": {
+      "format": "  ",
+      "tooltip": false
+    },
+    "custom/distro": {
+      "format": "󰣇 Arch",
+      "tooltip": false
+    },
+    "custom/quit": {
+      "format": " 󰗼 ",
+      "tooltip": false,
+      "on-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+      "format": " 󰍁 ",
+      "tooltip": false,
+      "on-click": "hyprlock"
+    },
+    "custom/reboot": {
+      "format": " 󰜉 ",
+      "tooltip": false,
+      "on-click": "reboot"
+    },
+    "custom/power": {
+      "format": " 󰐥 ",
+      "tooltip": false,
+      "on-click": "shutdown now"
+    },
+    "custom/uptime": {
+      "exec": "$HOME/projects/scripts/uptime",
+      "interval": 1,
+      "tooltip": false
+    },
+
+    // GROUPS
+    "group/system": {
+      "orientation": "inherit",
+      "modules": [
+        "cpu",
+        "custom/seperator",
+        "memory",
+        "custom/seperator",
+        "disk",
+        "custom/seperator",
+        "battery"
+      ]
+    },
+
+    "group/utils": {
+      "orientation": "inherit",
+      "modules": [
+        "bluetooth",
+        "custom/seperator",
+        "pulseaudio",
+        "custom/seperator",
+        "backlight",
+        "custom/seperator",
+        "network",
+      ]
+    },
+    "group/power": {
+      "orientation": "inherit",
+      "modules": [
+        "custom/lock",
+        "custom/quit",
+        "custom/power",
+        "custom/reboot",
+      ]
+    },
+
+    //OTHER
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": " ",
+        "deactivated": " "
+      }
+    },
+    "backlight": {
+      "format":" {percent: >3}%",
+      "scroll-step": 1,
+    },
+    "network": {
+      "tooltip-format": "{icon}{essid}",
+      "format": "{icon} {essid}",
+      "format-icons": [
+        "󰤯",
+        "󰤟",
+        "󰤢",
+        "󰤥",
+        "󰤨"
+      ]
+    },
+    "bluetooth": {
+      "format-on": "󰂯  on",
+      "format-disabled": "󰂲 off",
+      "format-connected": "󰂱 ctd",
+      "tooltip": true,
+      "tooltip-format": "{device_alias} ({device_battery_percentage}%)",
+      "on-click": "blueman-manager"
+    },
+    "clock": {
+      "format": "<b>{:%I:%M %p</b><i> %d/%m/%y}</i>",
+      "tooltip-format": "<small>{calendar}</small>",
+      "timezone": "Asia/Kolkata",
+      "calendar": {
+        "mode"          : "month",
+        "mode-mon-col"  : 3,
+        "on-scroll"     : 1,
+        "format": {
+          "months":     "{}",
+          "days":       "{}",
+          "today":      "<b><span color='#F38BA8'>{}</span></b>"
+        }
+      },
+    },
+    "pulseaudio": {
+      "format": "{icon} {volume: >3}%",
+      "format-bluetooth": "{icon} {volume: >3}%",
+      "format-muted": " ",
+      "format-icons": {
+        "headphones": "",
+        "default": [
+          " ",
+          " "
+        ]
+      },
+      "scroll-step": 1,
+      "on-click": "pamixer -t",
+      "on-click-right": "pavucontrol"
+    },
+    "memory": {
+      "interval": 1,
+      "format": "  {percentage}%"
+    },
+    "cpu": {
+      "interval": 1,
+      "format": "  {usage}%"
+    },
+    "battery": {
+      "states": {
+        "great": 100,
+        "good": 70,
+        "ok": 50,
+        "bad": 20,
+        "terrible": 10
+      },
+      "format": "{icon} {capacity}% <b>[{power:.0f}W]</b>",
+      "format-charging": "{icon}󱐋 {capacity}% <b>[{power:.0f}W]</b>",
+      "format-icons": [
+        "󰁻",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂀",
+        "󰂂",
+        "󰁹"
+      ],
+      "interval": 1,
+
+    },
+    "disk": {
+      "interval": 1,
+      "format": "󰋊 {percentage_used}%",
+      "path": "/home"
+    },
+    "hyprland/workspaces": {
+      "persistent-workspaces": {
+        "*" : 5
+      },
+      "format": "{icon}" ,
+    }
+  },]
